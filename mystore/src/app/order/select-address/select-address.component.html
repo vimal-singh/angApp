@@ -1,0 +1,39 @@
+<div class="modal-header">
+  <h5>Select address</h5>
+</div>
+
+<div class="modal-body">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Title</th>
+        <th>Line 1</th>
+        <th>Line 2</th>
+        <th>City</th>
+        <th>State</th>
+        <th>ZipCode</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <tr *ngFor="let address of addresses; let i = index">
+        <td>{{i + 1}}</td>
+        <td>{{address.title}}</td>
+        <td>{{address.line1}}</td>
+        <td>{{address.line2}}</td>
+        <td>{{address.city}}</td>
+        <td>{{address.state}}</td>
+        <td>{{address.zipCode}}</td>
+        <td>
+          <button (click)="onSelect(address)" class="btn btn-sm btn-info">Select</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="modal-footer">
+  <button (click)="onCancel()" class="btn btn-danger">Cancel</button>
+</div>

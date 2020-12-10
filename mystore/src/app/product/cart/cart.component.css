@@ -1,0 +1,11 @@
+.product-thumbnail {
+  width: 60px;
+}
+
+.quantity {
+  display: inline-block;
+  width: 50px;
+  font-weight: 700;
+  font-size: 19px;
+  text-align: center;
+}

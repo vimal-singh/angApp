@@ -1,0 +1,59 @@
+<div class="modal-header">
+  <h5>Add Address</h5>
+</div>
+
+<div class="modal-body">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="">Title</label>
+        <input [(ngModel)]="title" type="text" class="form-control">
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="">Zip Code</label>
+        <input [(ngModel)]="zipCode" type="text" class="form-control">
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="">Line 1</label>
+        <input [(ngModel)]="line1" type="text" class="form-control">
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="">Line 2</label>
+        <input [(ngModel)]="line2" type="text" class="form-control">
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="">City</label>
+        <input [(ngModel)]="city" type="text" class="form-control">
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="">State</label>
+        <input [(ngModel)]="state" type="text" class="form-control">
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="modal-footer">
+  <button (click)="onAdd()" class="btn btn-info">Add</button>
+  <button (click)="onCancel()" class="btn btn-danger">Cancel</button>
+</div>

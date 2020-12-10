@@ -1,0 +1,43 @@
+<h3 class="header">Products</h3>
+
+<div class="row">
+
+  <!-- filter section -->
+  <div class="col-md-3">
+    <div class="form">
+      <div class="form-group">
+        <label for="">Category</label>
+        <select (change)="filterProducts()" [(ngModel)]="category" class="form-control">
+          <option value="0">All</option>
+          <option [value]="category.id" *ngFor="let category of categories">{{category.title}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="">Brand</label>
+        <select (change)="filterProducts()" [(ngModel)]="brand" class="form-control">
+          <option value="0">All</option>
+          <option [value]="brand.id" *ngFor="let brand of brands">{{brand.title}}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-1"></div>
+
+  <!-- product section -->
+  <div class="col-md-8">
+    <h4 *ngIf="products.length == 0">There are no products matching this criteria</h4>
+    <div  *ngIf="products.length > 0" class="row">
+      <div class="col-md-4 product" *ngFor="let product of products">
+        <img src="http://localhost:4100/product/image/{{product.imageFile}}" class="card-img-top" alt="...">
+        <h5 (click)="showProductDetails(product)">{{product.title}}</h5>
+        <div class="description">{{product.description}}</div>
+
+        <div class="brand"><strong>Brand: </strong> {{product.brandTitle}}</div>
+        <div class="category"><strong>Category: </strong> {{product.categoryTitle}}</div>
+        <div class="price"><strong>Price: </strong> {{product.price}}</div>
+        <button (click)="onAddToCart(product)" class="btn btn-sm btn-info btn-add-to-cart">Add To Cart</button>
+      </div>
+    </div>
+  </div>
+</div>

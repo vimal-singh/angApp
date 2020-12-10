@@ -1,0 +1,46 @@
+<h3 class="header">Cart Items</h3>
+
+<h3 class="header" *ngIf="products.length == 0">There is no prouct added to cart</h3>
+<table *ngIf="products.length > 0" class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th style="width: 80px;">No</th>
+      <th style="width: 100px;">Thumbnail</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Total Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products; let i = index">
+      <td>{{i + 1}}</td>
+      <td>
+        <img class="product-thumbnail" src="http://localhost:4100/product/image/{{product.imageFile}}" alt="">
+      </td>
+      <td>{{product.title}}</td>
+      <td>{{product.description}}</td>
+      <td>
+        <button (click)="reduceQuantity(product)" class="btn btn-sm btn-danger"> - </button>
+        <span class="quantity">{{product.quantity}}</span>
+        <button (click)="increaseQuantity(product)" class="btn btn-sm btn-success"> + </button>
+      </td>
+      <td>₹ {{product.price}}</td>
+      <td>₹ {{product.price * product.quantity}}</td>
+    </tr>
+  </tbody>
+
+  <tfoot>
+    <tr>
+      <td colspan="6" style="text-align: right; font-weight: 600;">Cart Total Price</td>
+      <td><h5>₹ {{totalPrice}}</h5></td>
+    </tr>
+    <tr>
+      <td colspan="7">
+        <button (click)="onPlaceOrder()" class="btn btn-info float-right">Place Order</button>
+      </td>
+    </tr>
+  </tfoot>
+</table>
+

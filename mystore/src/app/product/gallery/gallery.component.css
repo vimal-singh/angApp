@@ -1,0 +1,23 @@
+.product {
+  border: #ccc solid 2px;
+  box-shadow: 0 0 5px 1px #ccc;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  /* cursor: pointer; */
+}
+
+h5 {
+  cursor: pointer;
+}
+
+.product img {
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+.btn-add-to-cart {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}

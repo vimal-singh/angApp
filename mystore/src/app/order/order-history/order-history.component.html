@@ -1,0 +1,44 @@
+<h3 class="header">My Orders</h3>
+
+<h5 *ngIf="orders.length == 0">There are no orders</h5>
+
+<table *ngIf="orders.length > 0" class="table table-striped">
+  <thead>
+    <tr>
+      <th>No</th>
+      <th>Date</th>
+      <th>Total Price</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let order of orders; let i = index">
+      <td>{{i + 1}}</td>
+      <td>{{order.created_on.split('T')[0]}}</td>
+      <td>{{order.totalAmount}}</td>
+      <td>
+          <!-- orderState: 
+            1: confirmed,
+            2: in packaging,
+            3: dispatched,
+            4: out_for_delivery, 
+            5: delivered,
+            6: cancelled 
+          -->
+          <span *ngIf="order.orderState == 1" class="badge badge-warning">Confirmed</span>
+          <span *ngIf="order.orderState == 2" class="badge badge-warning">In Packaging</span>
+          <span *ngIf="order.orderState == 3" class="badge badge-warning">Dispatched</span>
+          <span *ngIf="order.orderState == 4" class="badge badge-warning">Out For Delivery</span>
+          <span *ngIf="order.orderState == 5" class="badge badge-success">Delivered</span>
+          <span *ngIf="order.orderState == 6" class="badge badge-danger">Cancelled</span>
+        <!-- {{order.orderState}} -->
+      </td>
+      <td>
+        <button class="btn btn-info">Details</button>
+        <button (click)="onCancelOrder(order)" *ngIf="order.orderState < 2" class="btn btn-danger" style="margin-left: 10px;">Cancel</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
